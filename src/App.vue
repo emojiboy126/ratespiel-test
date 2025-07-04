@@ -32,7 +32,6 @@ export default {
       attempts: 0,
       gameOver: false,
       message: '',
-      // Optionally track session/gameId if backend requires it
     }
   },
   created() {
@@ -77,7 +76,6 @@ export default {
 </script>
 
 <style>
-/* ...your unchanged style block... */
 html, body {
   height: 100%;
   margin: 0;
