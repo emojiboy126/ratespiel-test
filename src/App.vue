@@ -41,13 +41,11 @@ export default {
   methods: {
     async startGame() {
       try {
-        const res = await axios.post('http://localhost:8081/api/game/start')
+        const res = await axios.post('http://localhost:8082/api/game/start', {}, { withCredentials: true })
         this.guess = null
         this.attempts = 0
         this.gameOver = false
         this.message = ''
-        // If backend returns a game/session ID, store it here
-        // this.gameId = res.data.gameId
       } catch (err) {
         this.message = 'Fehler beim Starten des Spiels.'
       }
@@ -58,11 +56,7 @@ export default {
         return
       }
       try {
-        // If backend needs a game ID, include it in the payload
-        const res = await axios.post('http://localhost:8081/api/game/guess', {
-          guess: guess
-          // , gameId: this.gameId
-        })
+        const res = await axios.post('http://localhost:8082/api/game/guess', { guess }, { withCredentials: true })
         this.attempts = res.data.attempts
         if (res.data.result === 'correct') {
           this.gameOver = true
