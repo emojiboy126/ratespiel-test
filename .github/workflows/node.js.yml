@@ -5,13 +5,14 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
-
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
 
     strategy:
